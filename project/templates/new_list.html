@@ -1,4 +1,4 @@
-{% extends 'sample_app/base.html' %}
+{% extends 'simpleapp/base.html' %}
 
 {% load custom_filters %} <!-- не забываем заранее загружать наши фильтры! -->
 
@@ -28,7 +28,9 @@
             Первые 20 слов текста статьи
         </th>
     </thead>
+
     {% for new in filter.qs %}
+    {% if new in page_obj %}
     <tr>
         <td>
             <a href="{% url 'new_detail' new.id %}">{{ new.name|Censor }}</a> <!-- применим наш фильтр, чтобы Censor itь -->
@@ -42,7 +44,9 @@
             {{ new.description|truncatechars:50|Censor }}
         </td>
     </tr>
+    {% endif %}
     {% endfor %}
+
 </table>
 
 

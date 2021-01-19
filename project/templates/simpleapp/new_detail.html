@@ -3,7 +3,6 @@
 {% block title %} New list {% endblock title %}
  
 {% block content %}
-<h2>Вы действительно хотите удалить данный new?</h2>
 <table>
     <thead>
         <th>
@@ -34,8 +33,4 @@
         </td>
     </tr>
 </table>
- 
-<form method="POST">
-    {% csrf_token %}
-    <input type="submit" value="подтвердить"></form>
-{% endblock content %} 
+{% endblock content %}
